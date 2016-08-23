@@ -14,7 +14,7 @@ namespace LINQtoObjects
                 select new
                 {
                     interfaceName = types.Name,
-                    NumOfMethods = types.GetMethods().Length
+                    NumOfMethods = types.GetMethods().Length //should be .count
                 }).ToList().ForEach(x => Console.WriteLine($"name: {x.interfaceName}" +
                                                            $"Number of methods: {x.NumOfMethods}"));
 
@@ -25,6 +25,10 @@ namespace LINQtoObjects
                 {
                     try
                     {
+
+                        //if process has proceess.StartTime() it exist,otherwise exception 
+                        // Number of threads should be calculated out of this action 
+                        // this Try Catch should be extract to new method
                         return process.Handle != IntPtr.Zero && process.Threads.Count < 5;
                     }
                     catch
@@ -46,12 +50,13 @@ namespace LINQtoObjects
                 });
 
             Console.WriteLine("\ngroup\n");
-
+            // part of this linq should be be extract to new method, look like to previous linq
             var processGroups = Process.GetProcesses()
                 .Where(process =>
                 {
                     try
                     {
+                        // this Try Catch should be extract to new method
                         return process.Handle != IntPtr.Zero && process.Threads.Count < 5;
                     }
                     catch
@@ -74,6 +79,7 @@ namespace LINQtoObjects
 
             Console.WriteLine("\n");
 
+            // Forget check for Access Proccess
             Console.WriteLine("The total number of threads in the system is " +
                               $"{Process.GetProcesses().Sum(process => process.Threads.Count)}");
 
