@@ -20,6 +20,8 @@ namespace LINQtoObjects
 
             Console.WriteLine("\n");
 
+
+            // Why did't you use: From .... in ...... syntex ???
             Process.GetProcesses()
                 .Where(process =>
                 {
