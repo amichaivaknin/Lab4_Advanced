@@ -13,3 +13,6 @@ C:\Users\Ami\Documents\Visual Studio 2015\Projects\codeValue\Advanced\lab4_Advan
 C:\Users\CodeValue\Source\Repos\lab4_Advanced\XLinq\bin\Debug\XLinq.exe.config
 C:\Users\CodeValue\Source\Repos\lab4_Advanced\XLinq\obj\Debug\XLinq.exe
 C:\Users\CodeValue\Source\Repos\lab4_Advanced\XLinq\obj\Debug\XLinq.pdb
+C:\Users\CodeValue\Source\Repos\Amichai\lab4_Advanced\XLinq\bin\Debug\XLinq.exe.config
+C:\Users\CodeValue\Source\Repos\Amichai\lab4_Advanced\XLinq\obj\Debug\XLinq.exe
+C:\Users\CodeValue\Source\Repos\Amichai\lab4_Advanced\XLinq\obj\Debug\XLinq.pdb

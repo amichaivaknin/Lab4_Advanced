@@ -9,8 +9,9 @@ namespace XLinq
     {
         static void Main()
         {
+            // Next time seperate to methods different exercises
             var xlmSystem = typeof(Assembly).Assembly.GetExportedTypes()
-                .Where(x => x.IsClass)
+                .Where(x => x.IsClass) //should be added: && member.IsPublic
                 .Select(@class =>
                 new XElement("Type",
                 new XAttribute("FullName", @class.FullName),
@@ -21,11 +22,11 @@ namespace XLinq
                             new XAttribute("Type", p.PropertyType.FullName ?? "T")))),
                     new XElement("Methodes",
                         @class.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-                        .Where(method => !method.IsSpecialName)
+                        .Where(method => !method.IsSpecialName)//  ???
                         .Select(method =>
                     new XElement("Method",
                     new XAttribute("Name", method.Name),
-                    new XAttribute("ReturnType", method.ReturnType.FullName ?? "T"),
+                    new XAttribute("ReturnType", method.ReturnType.FullName ?? "T"),// why not just method.ReturnType ??
                         new XElement("Parameter",
                             method.GetParameters().Select(parameter =>
                         new XElement("Parameter",
@@ -36,22 +37,24 @@ namespace XLinq
             // Console.WriteLine(xmltypes);     
 
             var xElements = xlmSystem as XElement[] ?? xlmSystem.ToArray();
+            // Why did't you use: From .... in ...... syntex ???
             var noPropertiesList =
                 xElements.Select(type => new {type, element = type.Element("Propirties")})
                     .Where(@t => @t.element != null && !@t.element.Descendants().Any())
+                    // use "select" at the end of your query or use 
                     .Select(@t => new {@t, nameOfType = @t.type.Attribute("FullName").ToString()})
                     .OrderBy(@t => @t.nameOfType)
                     .Select(@t => @t.nameOfType);
 
             //Console.WriteLine($"All types that have no properties {noPropertiesList.Count()} : ");
-
+            // make your LINQ query out of your print
             //Console.WriteLine($"Total number of methods, not including inherited ones: {xElements.Sum(t => t.Descendants("Method").Count())}");
 
             var statistics =
                      xElements.Descendants("Parameter")
                     .GroupBy(element => (string) element.Attribute("Type"))
                     .OrderByDescending(grp => grp.Count())
-                    .Select(grp => new {Name = grp.Key, Count = grp.Count()});
+                    .Select(grp => new {Name = grp.Key, Count = grp.Count()}); 
 
             //  Console.WriteLine($"Most Common type: {statistics.First().Name} namber of properties :{statistics.First().Count}");
 
@@ -64,7 +67,7 @@ namespace XLinq
                         Methods = @t.methods,
                         Properties = @t.type.Descendants("Property").Count()
                     });
-
+            // where is your new xml as asked at the exercise?
             //foreach (var order in orderdByMethods)
             //{
             //    Console.WriteLine(order);

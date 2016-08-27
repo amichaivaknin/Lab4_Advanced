@@ -7,3 +7,6 @@ C:\Users\Ami\Documents\Visual Studio 2015\Projects\codeValue\Advanced\lab4_Advan
 C:\Users\CodeValue\Source\Repos\lab4_Advanced\LINQtoObjects\bin\Debug\LINQtoObjects.exe.config
 C:\Users\CodeValue\Source\Repos\lab4_Advanced\LINQtoObjects\obj\Debug\LINQtoObjects.exe
 C:\Users\CodeValue\Source\Repos\lab4_Advanced\LINQtoObjects\obj\Debug\LINQtoObjects.pdb
+C:\Users\CodeValue\Source\Repos\Amichai\lab4_Advanced\LINQtoObjects\bin\Debug\LINQtoObjects.exe.config
+C:\Users\CodeValue\Source\Repos\Amichai\lab4_Advanced\LINQtoObjects\obj\Debug\LINQtoObjects.exe
+C:\Users\CodeValue\Source\Repos\Amichai\lab4_Advanced\LINQtoObjects\obj\Debug\LINQtoObjects.pdb
